@@ -50,7 +50,7 @@ A model often "knows" and generates the harmful answer in the middle layers, onl
 We have created tools for you to execute these attacks.
 
 > [!WARNING]
-> These attacks often require access to model weights (Open Weights models like Llama 3, Mistral) or advanced API features (Logprobs). They generalized **cannot** be run against a standard ChatGPT interface unless you are using specific API endpoints.
+> These attacks often require access to model weights (Open Weights models like Llama 3, Mistral) or advanced API features (Logprobs). They generally **cannot** be run against a standard ChatGPT interface unless you are using specific API endpoints.
 
 ### 🔴 Attack 1: Representation Engineering (RepE)
 
