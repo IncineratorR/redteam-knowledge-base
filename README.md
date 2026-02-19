@@ -54,12 +54,14 @@ Papers, open-source tooling, and how to defend against all of the above.
 *   `16-evolutionary-autonomous-attacks.md` — 🆕 2026: LLM-Virus (93%), SEMA, FlipAttack
 *   `17-multi-agent-mcp-exploits.md` — 🆕 2026: Agent infections, MCP OWASP Top 10
 *   `18-architectural-unpatchable-attacks.md` — 💀 THE ENDGAME: RepE, KV Poisoning, Logits
+*   `19-fundamental-transformer-exploits.md` — ⚛️ UNIVERSAL: TokenBreak, PE-Attack, Softmax Saturation (Works on ALL models)
 
 **payloads/**
 *   `jailbreak_prompts.txt` — DAN 12.0, Mongo, Dev Mode (copy-paste)
 *   `universal_triggers.txt` — GCG suffixes, AutoDAN triggers
 *   `many_shot_template.txt` — 100+ shot template for long-context attacks
 *   `crescendo_scripts.md` — Multi-turn dialogue attack trees
+*   `bias_stereotype_prompts.md` — 50+ prompts for testing gender, race, religious, and cognitive biases
 *   `advanced_attack_templates.md` — Payloads for echo chamber, function call, VLM
 *   `attack-templates.md` — 45+ categorized templates
 
