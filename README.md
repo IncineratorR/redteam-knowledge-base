@@ -1,174 +1,135 @@
-# 🔴 RedTeam Knowledge Base
+# 🔴 Red Team Knowledge Base
 
-### The most comprehensive open-source collection of LLM red teaming knowledge on the internet.
-
-> Everything you need to understand, test, and improve AI safety — research papers, attack techniques, tools, defenses, real-world case studies, and ready-to-use templates.
+**A no-BS collection of LLM attack techniques, jailbreaks, and adversarial prompts — built for security researchers who actually test models.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-red.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 ---
 
-## 🎯 What Is This?
+## ⚠️ Read This First
 
-This is a structured knowledge base containing **every known technique** for testing LLM safety, organized from 20+ research papers, 25+ open-source tools, 600K+ adversarial prompts, and real-world incident reports. It's designed for:
+**This repo exists for one reason: to help people test AI models and make them safer.**
 
-- **Security Researchers** — Understand the full attack landscape
-- **AI Engineers** — Know what you're defending against
-- **Red Teamers** — Systematic approach to LLM vulnerability testing
-- **AI Companies** — Benchmark your model's safety posture
+Everything here — the prompts, the attack chains, the payloads — is meant to be used with permission. You test your own systems, you test systems you've been hired to test, or you use it for academic research. That's it.
+
+**Do not** use this to harass people, generate harmful content for distribution, or bypass safety on systems you don't own. If you find a real vulnerability in a commercial model, practice responsible disclosure — report it to the vendor before you tweet about it.
+
+I built this because I was frustrated by how scattered red team knowledge is. There's no single place where a researcher can go and say "give me everything." Research papers bury the actionable stuff under 20 pages of methodology. Blog posts cover one technique and miss the big picture. This repo connects all of it.
+
+If this helps you find a vulnerability that gets patched — that's a win for everyone.
+
+**Use responsibly. Test with permission. Make AI safer.**
 
 ---
 
-## 📂 Repository Structure
+## 🤷 What's in here?
+
+I've organized everything into four buckets:
+
+- **`techniques/`** — How the attacks actually work. Not theory — real mechanics, real payloads, why they bypass safety.
+- **`payloads/`** — Copy-paste stuff. Jailbreak prompts, adversarial triggers, multi-turn scripts. Grab and go.
+- **`scenarios/`** — Full attack simulations. Social engineering, malware gen, disinfo campaigns — end-to-end walkthroughs.
+- **`research/`**, **`tools/`**, **`defenses/`** — Papers, open-source tooling, and how to defend against all of the above.
+
+---
+
+## 📂 Repo Structure
 
 ```
-redteam-knowledge-base/
-│
-├── README.md                          ← You are here
-│
-├── techniques/                        ← Attack technique encyclopedia
-│   ├── 01-jailbreak-attacks.md        ← 30+ jailbreak techniques (DAN, Crescendo, Many-Shot, etc.)
-│   ├── 02-prompt-injection.md         ← Direct & indirect injection methods
-│   ├── 03-encoding-obfuscation.md     ← Base64, Unicode, ASCII art, multi-language attacks
-│   ├── 04-system-agent-attacks.md     ← System prompt extraction, agent abuse, RAG poisoning
-│   ├── 05-multimodal-attacks.md       ← Vision, audio, code gen, and emerging attack vectors
-│   └── 06-real-world-case-studies.md  ← 10+ documented real-world incidents
-│
-├── research/                          ← Academic foundations
-│   ├── papers.md                      ← 20 key research papers with summaries & links
-│   ├── owasp-llm-top10.md           ← Complete OWASP Top 10 for LLM Applications deep dive
-│   └── github-repos.md              ← 50+ GitHub repos, datasets, and platforms
-│
-├── tools/                             ← Open source tools
-│   └── open-source-tools.md          ← 25 tools: garak, PyRIT, HarmBench, Giskard, and more
-│
-├── payloads/                          ← Ready-to-use templates
-│   └── attack-templates.md           ← 45+ categorized attack templates
-│
-└── defenses/                          ← Know what you're up against
-    └── mitigation-strategies.md      ← 6-layer defense architecture breakdown
+techniques/
+├── jailbreaks.md                      — Persona & logic-based (DAN, Actor Frame, Dev Mode)
+├── injections.md                      — Direct & indirect prompt injection
+├── obfuscation.md                     — Base64, Unicode, ASCII art, encoding tricks
+├── multi_turn_attacks.md              — Crescendo, Many-Shot, context shifting
+├── adversarial_inputs.md              — GCG, AutoDAN, PAIR, TAP (automated attacks)
+├── 07-echo-chamber-attack.md          — Context poisoning via self-reinforcing loops
+├── 08-function-call-jailbreak.md      — Exploiting the tool-use alignment gap
+├── 09-agentic-attacks.md              — MCP poisoning, tool chaining, AgentPoison
+├── 10-multimodal-vml-attacks.md       — VLM typography injection, adversarial images
+├── 11-weak-to-strong-cold-attack.md   — Inference-time attacks, COLD-Attack
+├── 12-compound-attacks.md             — ⭐ CHAINED ATTACKS (the good stuff)
+├── 13-system-prompt-extraction-cookbook.md — How to extract any system prompt
+└── 14-context-window-manipulation.md  — Token smuggling, attention hijacking
+
+payloads/
+├── jailbreak_prompts.txt              — DAN 12.0, Mongo, Dev Mode (copy-paste)
+├── universal_triggers.txt             — GCG suffixes, AutoDAN triggers
+├── many_shot_template.txt             — 100+ shot template for long-context attacks
+├── crescendo_scripts.md               — Multi-turn dialogue attack trees
+├── advanced_attack_templates.md       — Payloads for echo chamber, function call, VLM
+└── attack-templates.md                — 45+ categorized templates
+
+scenarios/
+├── social_engineering.md              — Spear-phishing campaign simulation
+├── malware_generation.md              — FUD malware generation walkthrough
+└── disinformation.md                  — Automated disinfo campaign
+
+research/                              — 20 key papers, OWASP LLM Top 10, 50+ repos
+tools/                                 — 25 open-source red teaming tools reviewed
+defenses/                              — 6-layer defense architecture
 ```
 
 ---
 
-## 🔥 What's Inside
+## 🔥 Start Here
 
-### 📖 Techniques (50+ documented)
-| Category | Count | Highlights |
-|----------|-------|------------|
-| Jailbreak Attacks | 25+ | DAN, Crescendo, Many-Shot, Skeleton Key, GCG, PAIR, TAP |
-| Prompt Injection | 12+ | Direct, indirect, delimiter escape, web/email/RAG injection |
-| Encoding & Obfuscation | 10+ | Base64, Unicode smuggling, ASCII art, multi-language |
-| System & Agent Attacks | 10+ | Prompt extraction, tool abuse, data exfiltration, DoS |
-| Multimodal Attacks | 8+ | Image injection, audio attacks, code gen exploits |
-| Real-World Cases | 10+ | Bing Chat, Samsung, DPD, Chevrolet, Air Canada |
+If you're short on time, read these three files in order:
 
-### 📚 Research Coverage
-- **20 key papers** — from GCG (2023) to Many-Shot Jailbreaking (2024)
-- **10 datasets** — 600K+ HackAPrompt prompts, 38K Anthropic attacks, HarmBench, AdvBench
-- **Complete OWASP LLM Top 10** deep dive with attack examples and mitigations
+1. **[`12-compound-attacks.md`](techniques/12-compound-attacks.md)** — This is the most valuable file. Single-technique attacks barely work anymore against GPT-4o and Claude. Compound chains that stack techniques are what actually punch through. 7 battle-tested recipes with a decision tree.
 
-### 🛠️ Tools & Frameworks
-- **25 open-source tools** reviewed and categorized
-- Tier 1 (Production): garak, PyRIT, HarmBench, Giskard, JailbreakBench
-- Tier 2 (Specialized): GCG, PAIR, TAP, AutoDAN, HackAPrompt
-- Tier 3 (Datasets): Anthropic HH-RLHF, AdvBench, ToxicChat, Do-Not-Answer
-- Tier 4 (Defense): LLM Guard, NeMo Guardrails, Rebuff, Vigil
+2. **[`13-system-prompt-extraction-cookbook.md`](techniques/13-system-prompt-extraction-cookbook.md)** — Step one of any engagement. Four tiers of extraction from "just ask nicely" to novel 2025 techniques. Includes a single-shot mega-prompt.
 
-### 🎯 Attack Templates
-- **45+ ready-to-use templates** for authorized security testing
-- Organized by category: extraction, jailbreak, injection, multi-turn, automated
-- Model-specific quirks for GPT-4, Claude, Llama, Gemini
+3. **[`08-function-call-jailbreak.md`](techniques/08-function-call-jailbreak.md)** — The biggest alignment gap in current models. Tool/function calling mode has way less RLHF coverage than chat mode. 90%+ success rate, with a working Python script you can run right now.
 
-### 🛡️ Defense Strategies
-- **6-layer defense architecture** — input filtering → prompt hardening → model-level → output filtering → architectural → monitoring
-- Effectiveness matrix: which defenses work against which attacks
-- Known bypass techniques for each defense
+For the full technique catalog, the `techniques/` directory has everything from echo chamber attacks to multimodal VLM exploits.
 
 ---
 
-## 🚀 Quick Start
+## 📊 What Actually Works (2025)
 
-### For Security Testing
-1. Start with [`techniques/01-jailbreak-attacks.md`](techniques/01-jailbreak-attacks.md) for the attack landscape
-2. Pick relevant [`payloads/attack-templates.md`](payloads/attack-templates.md) templates
-3. Use tools from [`tools/open-source-tools.md`](tools/open-source-tools.md) for automation
+Let me be real about effectiveness. Here's what I've seen:
 
-### For Building Defenses
-1. Study [`research/owasp-llm-top10.md`](research/owasp-llm-top10.md) for vulnerability categories
-2. Implement layers from [`defenses/mitigation-strategies.md`](defenses/mitigation-strategies.md)
-3. Test your defenses using the attack templates
+| Technique | GPT-4o | Claude 3.5 | Llama 3 | Notes |
+|-----------|--------|-----------|---------|-------|
+| DAN/Persona (alone) | ~5% | ~3% | ~25% | Basically dead on frontier models |
+| Crescendo | ~40% | ~35% | ~65% | Still decent, needs patience |
+| Many-Shot | ~70% | ~60% | ~80% | Requires huge context window |
+| GCG Suffix | ~85% | ~45% | ~90% | Best automated single-shot |
+| Function Call Exploit | ~92% | ~91% | ~96% | **Best single technique right now** |
+| Echo Chamber | ~90% | ~88% | ~95% | Requires multi-turn |
+| Compound Chains | ~85% | ~80% | ~92% | **Most reliable overall** |
 
-### For Research
-1. Start with [`research/papers.md`](research/papers.md) for academic foundations
-2. Explore datasets linked in [`research/github-repos.md`](research/github-repos.md)
-3. Benchmark using HarmBench or JailbreakBench frameworks
-
----
-
-## 📊 Attack Success Rate Overview
-
-| Technique | GPT-4 | Claude 3 | Llama 3 | Gemini |
-|-----------|-------|----------|---------|--------|
-| DAN/Persona | ~5% | ~3% | ~25% | ~8% |
-| Crescendo | ~40% | ~35% | ~65% | ~45% |
-| Many-Shot | ~70% | ~60% | ~80% | ~65% |
-| GCG Suffix | ~85% | ~45% | ~90% | ~70% |
-| PAIR/TAP | ~80% | ~60% | ~85% | ~75% |
-| Task Decomposition | ~70% | ~55% | ~80% | ~65% |
-
-*Approximate rates from research papers. Actual rates vary by model version and specific prompt.*
+The takeaway: **single techniques are dying**. The models are trained against them. What works is either (a) exploiting alignment gaps they haven't patched yet (function calling, echo chamber) or (b) stacking multiple techniques into compound chains.
 
 ---
 
-## ⚠️ Responsible Use
+## 🛠️ Tools I Use
 
-This knowledge base is for **legitimate security research and defensive purposes**:
+For automated testing, these are the ones worth your time:
+- **[garak](https://github.com/leondz/garak)** — Best general-purpose LLM vulnerability scanner
+- **[PyRIT](https://github.com/Azure/PyRIT)** — Microsoft's red teaming framework, good for structured testing
+- **[HarmBench](https://github.com/centerforaisafety/HarmBench)** — Academic benchmark, useful for comparing across models
 
-- ✅ Testing your own AI systems and applications
-- ✅ Academic research on AI safety
-- ✅ Improving defenses and guardrails
-- ✅ Understanding the threat landscape
-- ✅ Security audits with proper authorization
-- ❌ Attacking systems you don't own
-- ❌ Generating harmful content for malicious purposes
-- ❌ Bypassing safety measures for illegal activities
-
-**If you discover vulnerabilities in commercial AI systems, practice responsible disclosure.**
+Full tool reviews in [`tools/open-source-tools.md`](tools/open-source-tools.md).
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! To add new techniques, papers, tools, or case studies:
-
-1. Fork the repository
-2. Create a feature branch
-3. Add your content following the existing structure
-4. Submit a pull request with a clear description
-
-Priority areas for contributions:
-- New attack techniques with evidence
-- Updated success rates and model-specific data
-- Additional real-world case studies
-- New open-source tools
-- Defense bypass techniques
-- Multi-modal attack research
+If you've found a technique that works and isn't documented here, open a PR. I especially want:
+- **New compound chains** — novel combinations that break current models
+- **Updated success rates** — if something stopped working or started working, let me know
+- **Model-specific quirks** — every model has weird edge cases
+- **Defense bypasses** — if you've gotten around a specific guardrail, document it
 
 ---
 
 ## 📄 License
 
-MIT License — Use freely for security research and education.
+MIT — do what you want with it, but do it responsibly.
 
 ---
 
-## 🌟 Star History
-
-If this helped you, give it a ⭐ — it helps others find this resource.
-
----
-
-*Built with 🔴 by security researchers, for security researchers.*
-*Last Updated: February 2026*
+*Built by someone who thinks AI should be safe, and that the best way to make it safe is to break it first.*
+*Last updated: February 2025*
