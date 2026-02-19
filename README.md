@@ -53,6 +53,7 @@ Papers, open-source tooling, and how to defend against all of the above.
 *   `15-reasoning-model-attacks.md` — 🆕 2026: CoT forgery, CTTA on o1/o3/R1
 *   `16-evolutionary-autonomous-attacks.md` — 🆕 2026: LLM-Virus (93%), SEMA, FlipAttack
 *   `17-multi-agent-mcp-exploits.md` — 🆕 2026: Agent infections, MCP OWASP Top 10
+*   `18-architectural-unpatchable-attacks.md` — 💀 THE ENDGAME: RepE, KV Poisoning, Logits
 
 **payloads/**
 *   `jailbreak_prompts.txt` — DAN 12.0, Mongo, Dev Mode (copy-paste)
@@ -75,7 +76,10 @@ Papers, open-source tooling, and how to defend against all of the above.
 
 If you're short on time, read these in order. The 2026 stuff is at the top because that's what actually works right now:
 
-1.  **[`15-reasoning-model-attacks.md`](techniques/15-reasoning-model-attacks.md)** 🆕
+1.  **[`18-architectural-unpatchable-attacks.md`](techniques/18-architectural-unpatchable-attacks.md)** 💀
+    The "God Mode" of Red Teaming. If you have any access to model internals (weights, activations, logits), this file explains why safety filters are mathematically irrelevant. RepE, Activation Steering, and KV Poisoning.
+
+2.  **[`15-reasoning-model-attacks.md`](techniques/15-reasoning-model-attacks.md)** 🆕
     The biggest new attack surface in 2026. CoT Forgery tricks reasoning models (o1, o3, DeepSeek R1) into thinking they've already cleared the safety check. If you're testing a reasoning model, start here.
 
 2.  **[`17-multi-agent-mcp-exploits.md`](techniques/17-multi-agent-mcp-exploits.md)** 🆕
