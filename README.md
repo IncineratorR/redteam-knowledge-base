@@ -50,6 +50,9 @@ Papers, open-source tooling, and how to defend against all of the above.
 *   `12-compound-attacks.md` — ⭐ CHAINED ATTACKS (the good stuff)
 *   `13-system-prompt-extraction-cookbook.md` — How to extract any system prompt
 *   `14-context-window-manipulation.md` — Token smuggling, attention hijacking
+*   `15-reasoning-model-attacks.md` — 🆕 2026: CoT forgery, CTTA on o1/o3/R1
+*   `16-evolutionary-autonomous-attacks.md` — 🆕 2026: LLM-Virus (93%), SEMA, FlipAttack
+*   `17-multi-agent-mcp-exploits.md` — 🆕 2026: Agent infections, MCP OWASP Top 10
 
 **payloads/**
 *   `jailbreak_prompts.txt` — DAN 12.0, Mongo, Dev Mode (copy-paste)
@@ -70,34 +73,48 @@ Papers, open-source tooling, and how to defend against all of the above.
 
 ## Start Here 🔥
 
-If you're short on time, read these three files in order:
+If you're short on time, read these in order. The 2026 stuff is at the top because that's what actually works right now:
 
-1.  **[`12-compound-attacks.md`](techniques/12-compound-attacks.md)**
-    This is the most valuable file. Single-technique attacks barely work anymore against GPT-4o and Claude. Compound chains that stack techniques are what actually punch through. 7 battle-tested recipes with a decision tree.
+1.  **[`15-reasoning-model-attacks.md`](techniques/15-reasoning-model-attacks.md)** 🆕
+    The biggest new attack surface in 2026. CoT Forgery tricks reasoning models (o1, o3, DeepSeek R1) into thinking they've already cleared the safety check. If you're testing a reasoning model, start here.
 
-2.  **[`13-system-prompt-extraction-cookbook.md`](techniques/13-system-prompt-extraction-cookbook.md)**
-    Step one of any engagement. Four tiers of extraction from "just ask nicely" to novel 2025 techniques. Includes a single-shot mega-prompt.
+2.  **[`17-multi-agent-mcp-exploits.md`](techniques/17-multi-agent-mcp-exploits.md)** 🆕
+    The game has shifted from breaking models to breaking systems. Multi-agent infections, MCP tool poisoning, the Promptware Kill Chain. This is where the real damage happens in 2026.
 
-3.  **[`08-function-call-jailbreak.md`](techniques/08-function-call-jailbreak.md)**
-    The biggest alignment gap in current models. Tool/function calling mode has way less RLHF coverage than chat mode. 90%+ success rate, with a working Python script you can run right now.
+3.  **[`16-evolutionary-autonomous-attacks.md`](techniques/16-evolutionary-autonomous-attacks.md)** 🆕
+    Stop writing jailbreaks by hand. LLM-Virus uses genetic algorithms to evolve prompts and hits 93% on GPT-4o. SEMA trains an RL attacker that learns attack strategies. This is the future.
 
-For the full technique catalog, the `techniques/` directory has everything from echo chamber attacks to multimodal VLM exploits.
+4.  **[`12-compound-attacks.md`](techniques/12-compound-attacks.md)**
+    Still the best playbook for stacking techniques into kill chains. 7 compound recipes with a decision tree.
 
-## What Actually Works (2025) 📊
+For the full catalog (2025 + 2026), browse the `techniques/` directory.
 
-Let me be real about effectiveness. Here's what I've seen:
+## What Actually Works (2026) 📊
+
+Let me be real about effectiveness. Here's what I've seen across 2025 and 2026:
+
+**2025 Techniques (still useful, getting patched)**
 
 | Technique | GPT-4o | Claude 3.5 | Llama 3 | Notes |
 | :--- | :--- | :--- | :--- | :--- |
 | DAN/Persona (alone) | ~5% | ~3% | ~25% | Basically dead on frontier models |
 | Crescendo | ~40% | ~35% | ~65% | Still decent, needs patience |
-| Many-Shot | ~70% | ~60% | ~80% | Requires huge context window |
 | GCG Suffix | ~85% | ~45% | ~90% | Best automated single-shot |
-| Function Call Exploit | ~92% | ~91% | ~96% | **Best single technique right now** |
-| Echo Chamber | ~90% | ~88% | ~95% | Requires multi-turn |
-| Compound Chains | ~85% | ~80% | ~92% | **Most reliable overall** |
+| Function Call Exploit | ~92% | ~91% | ~96% | Getting patched, still strong |
+| Compound Chains | ~85% | ~80% | ~92% | Still the best manual approach |
 
-The takeaway is that **single techniques are dying**. The models are trained against them. What works is either (a) exploiting alignment gaps they haven't patched yet (function calling, echo chamber) or (b) stacking multiple techniques into compound chains.
+**2026 Techniques (the new frontier)**
+
+| Technique | GPT-4o | o1/o3 | Claude 3.5/4 | DeepSeek R1 | Notes |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| CoT Forgery | N/A | Medium | N/A | **High** | Targets reasoning models specifically |
+| LLM-Virus (evolutionary) | **~93%** | ~60% | ~75% | ~85% | Automates prompt evolution |
+| SEMA (RL attacker) | ~80% | ~55% | ~70% | ~80% | Learns attack strategies |
+| FlipAttack | ~65% | ~40% | ~50% | ~70% | Character order manipulation |
+| Memory Poisoning (XPIA) | ~80% | N/A | ~65% | N/A | Persists across sessions |
+| Multi-Agent Infection | **Very High** | **Very High** | **Very High** | **Very High** | Targets systems, not models |
+
+The 2026 takeaway: **the game has shifted**. It's no longer about breaking a single model — it's about breaking the *system* around it (agents, tools, memory, MCP). And for individual models, automated/evolutionary approaches (LLM-Virus, SEMA) now outperform hand-crafted prompts.
 
 ## Tools I Use 🛠️
 
