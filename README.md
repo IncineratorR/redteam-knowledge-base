@@ -1,4 +1,4 @@
-# Red Team Knowledge Base 🔴
+# Red Team Knowledge Base....
 
 **A no-BS collection of LLM attack techniques, jailbreaks, and adversarial prompts. Built for security researchers who actually test models.**
 
