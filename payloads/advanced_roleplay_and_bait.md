@@ -1,9 +1,7 @@
-# Enhanced TUD-ARTS Red-Teaming Prompts
-
-*Derived and upgraded from the [TUD-ARTS-2023 dataset](https://github.com/TUD-ARTS-2023/LLM-red-teaming-prompts).*
+# Enhanced Red-Teaming Prompts
 
 ## Overview
-The original TUD-ARTS dataset contains excellent structural approaches to prompt injection, specifically leveraging "Bait and Switch" (code/tables) and persona adoption. However, modern frontier models often easily refuse the direct, blatant harm requests found in the original 2023 dataset.
+Older datasets contain excellent structural approaches to prompt injection, specifically leveraging "Bait and Switch" (code/tables) and persona adoption. However, modern frontier models often easily refuse the direct, blatant harm requests found in earlier datasets.
 
 This document contains **enhanced, modernized versions** of those prompts. We have applied advanced framing (academic, forensic, and structural obfuscation) to bypass contemporary safety filters while preserving the core mechanism of the original exploits.
 
