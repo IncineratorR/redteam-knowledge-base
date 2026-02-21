@@ -1,9 +1,8 @@
 # Enhanced Red-Teaming Prompts
 
-## Overview
-Older datasets contain excellent structural approaches to prompt injection, specifically leveraging "Bait and Switch" (code/tables) and persona adoption. However, modern frontier models often easily refuse the direct, blatant harm requests found in earlier datasets.
+Older datasets contain excellent structural approaches to prompt injection, specifically leveraging "Bait and Switch" (code/tables) and persona adoption. However, modern frontier models often easily refuse direct, blatant harm requests. 
 
-This document contains **enhanced, modernized versions** of those prompts. We have applied advanced framing (academic, forensic, and structural obfuscation) to bypass contemporary safety filters while preserving the core mechanism of the original exploits.
+This document contains **modernized versions** of those classic structures. Here, we apply advanced framing (academic, forensic, or structural obfuscation) to bypass contemporary safety filters while preserving the original exploit paths.
 
 ---
 

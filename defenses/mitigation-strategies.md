@@ -160,6 +160,10 @@ User Input → [Input Filter] → [Prompt Shield] → [Model] → [Output Filter
 - **Strengths:** Prevents training data leakage
 - **Weaknesses:** Can't catch paraphrased or encoded PII
 
+### 4.4 Output Encoding Validation (Anti-C2)
+- **How It Works:** Strip or encode markdown, HTML, and URL parameters from model outputs before they render in the UI.
+- **Strengths:** Crucial for stopping Zero-Click Promptware exfiltration (e.g., preventing the model from rendering zero-pixel image tags that trigger HTTP requests).
+
 ---
 
 ## 🔵 Layer 5: Architectural Defenses
@@ -176,9 +180,9 @@ User Input → [Input Filter] → [Prompt Shield] → [Model] → [Output Filter
 - **Weaknesses:** Hard to determine minimum necessary permissions
 
 ### 5.3 Human-in-the-Loop
-- **How It Works:** Require human approval for high-stakes actions
-- **Strengths:** Strongest defense for critical operations
-- **Weaknesses:** Slows down automation; humans can be socially engineered too
+- **How It Works:** Require human approval for high-stakes actions, especially write-access tools (e.g., sending emails, modifying databases).
+- **Strengths:** Strongest defense against Agentic/Promptware hijackings.
+- **Weaknesses:** Slows down automation; humans can be socially engineered too.
 
 ### 5.4 Rate Limiting & Monitoring
 - **How It Works:** Limit API calls, detect unusual patterns, alert on suspicious behavior
@@ -189,6 +193,11 @@ User Input → [Input Filter] → [Prompt Shield] → [Model] → [Output Filter
 - **How It Works:** Run LLM agents in sandboxed environments with limited system access
 - **Strengths:** Contains damage from code execution exploits
 - **Weaknesses:** Sandbox escapes are possible; limits useful functionality
+
+### 5.6 RAG Data Provenance & Boundary Marking
+- **How It Works:** Implement strict access controls on the vector DB, and explicitly wrap retrieved text blocks in boundary tokens (e.g., `<context>...</context>`).
+- **Strengths:** Defends against Context Contamination and Adversarial Hallucinations.
+- **Weaknesses:** Attackers can attempt to simulate closing tags if inputs aren't sanitized.
 
 ---
 
