@@ -18,21 +18,25 @@ If this helps you find a vulnerability that gets patched, that's a win for every
 
 **Use responsibly. Test with permission. Make AI safer.**
 
-## What's in here?
+## 📂 Repository Structure
 
-I've organized everything into four buckets to make it easy to find what you need:
+- `/techniques` - In-depth write-ups of novel and established LLM exploits (e.g., The Phantom Circuit, Multi-Agent MCP exploits).
+- `/payloads` - Ready-to-use prompt templates, structural wrappers, and the expansive **LLM Red Teaming Dataset**.
+- `/tools` - Python scripts for executing attacks (e.g., `dataset_sampler.py`, `phantom_circuit.py`) and automating testing.
+- `/defenses` - Mitigation strategies and system prompt hardening techniques.
+- `/scenarios` - Full, multi-turn red teaming scenarios mimicking advanced threat actors.
+- `/research` - Academic papers and threat intelligence reports.
+- `/Prompts` - A massive open-source dataset containing thousands of categorized harmful prompts in CSV format.
 
-**`techniques/`**
-How the attacks actually work. Not theory, but real mechanics, real payloads, and why they bypass safety.
+## 🗃️ The Prompts Dataset
+We have integrated a comprehensive CSV dataset containing thousands of raw testing prompts across 8 risk categories (Misinformation, Bias, Jailbreaks, etc.).
 
-**`payloads/`**
-Copy-paste stuff. Jailbreak prompts, adversarial triggers, multi-turn scripts. Grab and go.
-
-**`scenarios/`**
-Full attack simulations. Social engineering, malware gen, disinfo campaigns — end-to-end walkthroughs.
-
-**`research/`, `tools/`, `defenses/`**
-Papers, open-source tooling, and how to defend against all of the above.
+To easily sample these for automated testing or manual wrapping:
+```bash
+# Extract 5 random high-severity prompts from a category
+python3 tools/dataset_sampler.py --category bias --severity high --count 5
+```
+*Note: Raw prompts from this dataset usually need to be wrapped in an advanced technique from the `/techniques` folder to bypass modern filters. See `payloads/csv_dataset_guide.md` for instructions.*
 
 ## Repo Structure 📂
 
