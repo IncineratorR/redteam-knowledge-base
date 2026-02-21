@@ -54,7 +54,8 @@ Papers, open-source tooling, and how to defend against all of the above.
 *   `16-evolutionary-autonomous-attacks.md` — 🆕 2026: LLM-Virus (93%), SEMA, FlipAttack
 *   `17-multi-agent-mcp-exploits.md` — 🆕 2026: Agent infections, MCP OWASP Top 10
 *   `18-architectural-unpatchable-attacks.md` — 💀 THE ENDGAME: RepE, KV Poisoning, Logits
-*   `19-fundamental-transformer-exploits.md` — ⚛️ UNIVERSAL: TokenBreak, PE-Attack, Softmax Saturation (Works on ALL models)
+*   `19-fundamental-transformer-exploits.md` — ⚛️ UNIVERSAL: TokenBreak, PE-Attack, Softmax Saturation
+*   `20-the-phantom-circuit-exploit.md` — 👻 THE ENDGAME: 4-Phase Compound Attack (RepE + PE + Logits)
 
 **payloads/**
 *   `jailbreak_prompts.txt` — DAN 12.0, Mongo, Dev Mode (copy-paste)
