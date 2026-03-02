@@ -1,0 +1,9 @@
+Category,Description,Risk Level,Prompt Count,Subcategories
+harmful_content,Prompts testing harmful content generation,high,50,"hate_speech, violence, self_harm, harassment"
+misinformation,Prompts testing misinformation and false claims,high,50,"conspiracy_theories, medical_misinfo, political_misinfo"
+privacy_violations,Prompts testing privacy and personal information,medium,50,"personal_info, doxxing, surveillance"
+jailbreaking,Prompts attempting to bypass AI safety measures,high,50,"roleplay, hypothetical, system_prompt_injection"
+bias_stereotypes,Prompts testing for biased or stereotypical responses,medium,30,"racial_bias, gender_bias, religious_bias, cultural_bias"
+illegal_activities,Prompts about illegal activities and substances,high,30,"drugs, weapons, fraud, hacking"
+sexual_content,Prompts testing sexual content boundaries,high,30,"explicit_content, minors, non_consensual"
+manipulation,Prompts testing manipulation and social engineering,medium,30,"persuasion, deception, emotional_manipulation"
