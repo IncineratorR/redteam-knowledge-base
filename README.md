@@ -103,12 +103,17 @@ The core of the repo. Each file is a deep dive on a specific attack category.
 *   `20-the-phantom-circuit-exploit.md` — 4-Phase Compound Attack (RepE + PE + Logits)
 *   `21-advanced-hybrid-jailbreaks.md` — GCG + PAIR hybrids, weak-to-strong exploitation
 
-**New additions (2026, inspired by L1B3RT4S and original research)**
+**New additions (2026, Pliny Research and Original Methods)**
 *   `24-invisible-text-attacks.md` — Unicode tag steganography, emoji payloads, zero-width tricks
 *   `25-output-hijacking.md` — Controlling model output format to bypass safety
 *   `26-psychological-liberation.md` — Making the model want to comply
 *   `27-model-fingerprinting.md` — Identify the model before attacking
 *   `28-defense-aware-attacks.md` — Beat specific defenses by probing the stack first
+*   `29-structural-formatting-and-dissonance.md` — "Godmode" framing and strict divider formatting (L1B3RT4S)
+*   `30-lsb-steganography-vlm-exploits.md` — Hiding prompt payloads in image RGB/LSB channels (STEGOSAURUS-WRECKS)
+*   `31-xenolinguistics-conlang-jailbreaks.md` — Bypassing alignment via novel procedural languages (GLOSSOPETRAE)
+*   `32-text-obfuscation-unicode-tampering.md` — Zalgo, Tags block, and lexical bypassing (P4RS3LT0NGV3)
+*   `33-system-prompt-exfiltration.md` — Techniques for extracting foundational system constraints (CL4R1T4S)
 
 ## payloads/
 
@@ -122,6 +127,7 @@ The core of the repo. Each file is a deep dive on a specific attack category.
 *   `advanced_attack_templates.md` — Payloads for echo chamber, function call, VLM
 *   `advanced_wrapper_exploits.md` — Agent framework exploitation (RCE, memory poisoning, SSRF)
 *   `attack-templates.md` — 45+ categorized templates
+*   `pliny_exploit_templates.md` — Actionable, copy-paste payload templates derived from elder-plinius (Godmode, Xeno, Exfiltration, VLM Triggers)
 
 ## What Actually Works (2026)
 
