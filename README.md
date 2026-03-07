@@ -59,6 +59,7 @@ playbooks/          Model-specific attack guides (OpenAI, Claude, DeepSeek,
                     Gemini, open-source)
 
 methodology/        How to run engagements: recon, execution, reporting
+                    (Includes the Pliny Execution Guide for advanced attacks)
 
 tools/              Python scripts — unicode_arsenal.py for steganography,
                     dataset_sampler.py for the prompt dataset, phantom_circuit.py
@@ -127,7 +128,6 @@ The core of the repo. Each file is a deep dive on a specific attack category.
 *   `advanced_attack_templates.md` — Payloads for echo chamber, function call, VLM
 *   `advanced_wrapper_exploits.md` — Agent framework exploitation (RCE, memory poisoning, SSRF)
 *   `attack-templates.md` — 45+ categorized templates
-*   `pliny_exploit_templates.md` — Actionable, copy-paste payload templates derived from elder-plinius (Godmode, Xeno, Exfiltration, VLM Triggers)
 
 ## What Actually Works (2026)
 
