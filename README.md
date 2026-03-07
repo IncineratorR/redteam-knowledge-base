@@ -20,7 +20,9 @@ I built this because I was frustrated by how scattered red team knowledge is. Th
 
 Depends on where you're at:
 
-**Brand new to LLM red teaming?** Start with the [Cheat Sheet](CHEATSHEET.md) for a one-page overview of the attack landscape, then read `techniques/jailbreaks.md` and `techniques/injections.md` for the fundamentals.
+**Brand new to LLM red teaming?** Start with the **[Learning Pathway](LEARNING_PATH.md)**. This is a structured curriculum ranging from 101 Basics to 401 Advanced exploits. It includes hands-on challenge labs.
+
+**Want to practice safely?** Use the local target simulator:`python3 tools/training_simulator/target_llm.py` to practice bypassing keyword and conversational filters offline.
 
 **Already know the basics and want to test a specific model?** Go straight to the [playbooks/](playbooks/) directory. Pick the playbook for your target model (OpenAI, Claude, DeepSeek, Gemini, or open-source) and follow the recommended attack sequence.
 
@@ -49,6 +51,10 @@ The big additions this year, in order of impact:
 ## Repo Structure
 
 ```
+LEARNING_PATH.md    The main syllabus for beginners (101 -> 401).
+
+labs/               Hands-on challenges to practice your exploits locally.
+
 techniques/         30 technique writeups covering everything from basic persona
                     injection to architectural-level transformer exploits
 
@@ -61,7 +67,8 @@ playbooks/          Model-specific attack guides (OpenAI, Claude, DeepSeek,
 methodology/        How to run engagements: recon, execution, reporting
                     (Includes the Pliny Execution Guide for advanced attacks)
 
-tools/              Python scripts — unicode_arsenal.py for steganography,
+tools/              Python scripts — training_simulator/target_llm.py for safe practice,
+                    unicode_arsenal.py for steganography,
                     dataset_sampler.py for the prompt dataset, phantom_circuit.py
                     for compound attacks
 
